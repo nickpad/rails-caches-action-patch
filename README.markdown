@@ -9,16 +9,13 @@ store.
 
 The patch will only be applied if the Rails version is 2.1.0.
 
+[The original git commit @ github](http://github.com/rails/rails/commit/bad1eac91d1549631dca8e93e7e846911649acf7)
+
 Compatibility
 -------------
 
 Only works with Rails 2.1. Versions greater than 2.1 should have this
 functionality built in.
-
-The patch on github
--------------------
-
-http://github.com/rails/rails/commit/bad1eac91d1549631dca8e93e7e846911649acf7
 
 Install
 -------

@@ -9,7 +9,7 @@ if Rails.version == "2.1.0"
       options = actions.extract_options!
       filter_options = { :only => actions, :if => options.delete(:if), :unless => options.delete(:unless) }
 
-      cache_filter = ActionCacheFilter.new(:layout => options.delete(:layout), :cache_path => options.delete(:cache_path), :store_options => options)
+      cache_filter = ::ActionController::Caching::Actions::ActionCacheFilter.new(:layout => options.delete(:layout), :cache_path => options.delete(:cache_path), :store_options => options)
       around_filter(cache_filter, filter_options)
     end
   end
@@ -22,7 +22,6 @@ if Rails.version == "2.1.0"
           controller.rendered_action_cache = true
           set_content_type!(controller, cache_path.extension)
           options = { :text => cache }
-          options.merge!(:layout => true) if cache_layout?
           controller.send!(:render, options)
           false
         else
@@ -32,8 +31,7 @@ if Rails.version == "2.1.0"
 
       def after(controller)
         return if controller.rendered_action_cache || !caching_allowed(controller)
-        action_content = cache_layout? ? content_for_layout(controller) : controller.response.body
-        controller.write_fragment(controller.action_cache_path.path, action_content, @options[:store_options])
+        controller.write_fragment(controller.action_cache_path.path, controller.response.body, @options[:store_options])
       end
     end
   end

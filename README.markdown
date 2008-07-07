@@ -20,4 +20,4 @@ functionality built in.
 Install
 -------
 
-ruby script/plugin install git://github.com/nickpad/rails-caches-action.git
+ruby script/plugin install git://github.com/nickpad/rails-caches-action-patch.git

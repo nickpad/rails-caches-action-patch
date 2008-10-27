@@ -1,5 +1,5 @@
-# Only apply this patch if Rails version is 2.1.0 or 2.1.1:
-if ['2.1.0', '2.1.1'].include?(Rails.version)
+# Only apply this patch if Rails version is 2.1.0, 2.1.1 or 2.1.2:
+if ['2.1.0', '2.1.1', '2.1.2'].include?(Rails.version)
 
   module ::ActionController::Caching::Actions::ClassMethods
     # Declares that +actions+ should be cached.

@@ -7,7 +7,7 @@ the use of cache-specific options from the caches_action method.
 For example, you can specify :expires_in => 30 when using the MemCache cache
 store.
 
-The patch will only be applied if the Rails version is 2.1.0.
+The patch will only be applied if the Rails version is 2.1.0, 2.1.1 or 2.1.2.
 
 [The original git commit @ github](http://github.com/rails/rails/commit/bad1eac91d1549631dca8e93e7e846911649acf7)
 
